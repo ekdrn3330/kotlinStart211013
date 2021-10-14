@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class ControlJavaActivity extends AppCompatActivity {
 
     EditText numberField;
-    Button button;
+    Button control_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,30 +18,30 @@ public class ControlJavaActivity extends AppCompatActivity {
         setContentView(R.layout.layout_control);
 
         numberField = findViewById(R.id.numberField);
-        button = findViewById(R.id.control_button);
+        control_button = findViewById(R.id.control_button);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        control_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int number = Integer.parseInt(numberField.getText().toString());
 
                 if (number % 2 == 0) {
-                    Toast.makeText(getApplicationContext(), "" + number + "는 2의 배수입니다", Toast.LENGTH_SHORT).show();
+                    ToastUtilJava.toastShort("" + number + "는 2의 배수입니다");
                 } else if (number % 3 == 0) {
-                    Toast.makeText(getApplicationContext(), "" + number + "는 3의 배수입니다", Toast.LENGTH_SHORT).show();
+                    ToastUtilJava.toastShort("" + number + "는 3의 배수입니다");
                 } else {
-                    Toast.makeText(getApplicationContext(), "" + number, Toast.LENGTH_SHORT).show();
+                    ToastUtil.toastShort("" + number);
                 }
 
                 switch (number) {
                     case 4:
-                        button.setText("실행 - 4");
+                        control_button.setText("실행 - 4");
                         break;
                     case 9:
-                        button.setText("실행 - 9");
+                        control_button.setText("실행 - 9");
                         break;
                     default:
-                        button.setText("실행");
+                        control_button.setText("실행");
                         break;
                 }
             }
